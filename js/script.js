@@ -14,6 +14,7 @@ function init() {
       item.style.width = width + 'px';
       item.style.height = 'auto';
    });
+   rollSlider();
 }
 
 window.addEventListener('resize', init);
@@ -26,6 +27,15 @@ document.querySelector('.slider-next').addEventListener('click', () => {
    }
    rollSlider();
 });
+
+document.querySelector('.slider-prev').addEventListener('click', () => {
+   count--;
+   if (count < 0) {
+      count = images.length - 1;
+   }
+   rollSlider();
+});
+
 
 function rollSlider() {
    sliderLine.style.transform = 'translate(-' + count * width + 'px)';
